@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style media="screen">
+	*{scroll-behavior:smooth;}   
+   html,body,div.container{
+      height: 100%;
+      width:100%;
+      margin: 0;
+      padding:0;
+      font-family: 'Cuprum', sans-serif;
+      font-size: 100%;
+      line-height: 1.3;
+    }
+    div.container{
+      width:99%;
+      margin: 1% 0.5% 0 0.5%;
+    }
+    div.page1,div.page2,div.page3,div.page5,.vid-wrap,#video,.vid-wrap::after{
+      height: 100%;
+      width: 100%;
+    }
+    h1,h2,h3{
+      text-transform: uppercase;
+      color: #d7ac28;
+      margin: 1% 0;
+	  text-align:center;
+    }
+
+    .logo{
+        font-family: 'Pacifico', cursive;
+        border: none;
+        background-color: #969fae;
+        color: red;
+    }
+  /*--NAVIGATION-START--*/
+a{
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul li a{
+  color:#fff;
+}
+nav{
+  background-color: #969fae;
+  border-radius: 8px 8px 0 0px;
+  padding: 0.5% 0;
+}
+/*--the dropdown menu drop out of the navigation--*/
+ul.major{
+  text-align: center;
+  display: block;
+  transition: display 0.3s ease-in;
+}
+ ul.minor{
+   position: absolute;
+   padding-top: 1%;
+   padding-bottom: 10px;
+   transform: scale(0);
+   transition: transform 0.3s ease-in;
+   z-index: 1000;
+ }
+ .dropdown{
+   width:100%;
+ }
+.dropdown:hover +  ul.minor,ul.minor:hover{
+   transform: scale(1);
+}
+ /*--the nav menu links appears horizontally--*/
+ ul.major  li{
+        display: inline-block;
+        background-color: #d7ac28;
+        min-width:7%;
+        padding: 0.5% 0;
+        margin: 3px;
+}
+ul.major  li:hover{
+  background-color: red;
+}
+ /*--the nav menu links appears vertically--*/
+ul.minor > li{
+    display: block;
+      background-color: #887026;
+      text-align: left;
+      padding:8px 10px;
+      margin:0;
+      border-bottom: 1px solid blue;
+  }
+  .mobile-menu,#toggle{
+    display:none;
+    transition: display 0.3s ease-in;
+
+  }
+  #toggle:checked +  ul.major{
+    display: block;
+  }
+  .mobile-menu{
+    margin: 10px 20px;
+  }
+  .mobile-menu span{
+    width:30px;
+    height: 5px;
+    margin: 2px;
+    background: red;
+    display: block;
+  }
+.split-screen-container{
+     height:55%;
+     background-color: #887026;
+}
+
+.screen-1, .screen-2{
+  float: left;
+  position: relative;
+  display: table;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position:50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ddd;
+  transform: scale(1);
+  transition: transform 300ms ease-in;
+  background-color: transparent;
+}
+.screen-1:hover,.screen-2:hover{
+  transform: scale(0.97);
+}
+.screen-1::after,.screen-2::after{
+  position: absolute;
+  content: '';
+   background: rgba(0,0,0,.65);
+   top: 0;
+   left: 0;
+}
+.screen-1{
+  background-image: url("images/photo1.jpg");
+  width: 50%;
+  background-size: cover;
+  position:relative;
+  }
+.screen-2{
+  background-image: url("images/photo2.jpg");
+  width: 50%;
+  background-size: cover;
+  position:relative;
+}
+ 
+.content div{
+     padding:2% 7%;
+}
+.content div ul li{
+     margin:1% 0;
+}
+.content div ul,.content div ul{
+     margin:5% 0;
+}
+button{
+  background-color: #969fae;
+  padding: 13px 30px;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+  margin: 1% 0;
+  transition: transform 300ms ease-in;
+}
+button:hover{
+  background-color: #887026;
+}
+.content{
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width:100%;
+}
+.social-call a{
+  color: #969fae;
+  transition:all .3s linear;
+
+}
+.social-call a:hover{
+  color: #blue;
+
+}
+.article{
+  text-align: center;
+  padding: 4% 10%;
+}
+hr{
+	border-color: #d7ac28;
+	width:100px;
+	margin-bottom:2%;
+}
+
+
+	.vid-wrap{
+		position:relative;
+		margin:0.5%;
+		width:99%;
+		background-image:url(images/image2.jpg);
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-size:cover;
+	}
+	#video,.vid-wrap::after{
+		position:absolute;	
+		right:0;
+		top:0;
+		left:0;
+		bottom:0;
+	}
+	#video{
+		object-fit:fill;
+	}
+	.vid-wrap::after{
+		content:'';
+		background:rgba(0,0,0,0.7);	
+	}
+	.vid-cont{
+		position:absolute;
+		z-index:1;
+		color:#ccc;
+		left:50%;
+		top:50%;
+		transform:translate(-50% , -50%);	
+		text-align:center;
+	}
+
+/************GALLERY STARTS**************/
+
+    div.container>div.page3>div.grid-wrapper{
+     display: table-cell;
+     text-align: center;
+     vertical-align: middle;
+     width: 100%;
+     float: left;
+    }
+   div.page3  a{
+		 color: #d7ac28;
+   }
+   div.container>div.page3>div.grid-wrapper>div.grid-cols{
+      width:24%;
+      padding: 1.5% 0 2% 0;
+      margin:0.5%;
+      float: left;
+      background-color: #969fae;
+     border-radius: 5px;
+    }
+.modal-overall::before{
+      content: '';
+      position: fixed;
+      top:0;
+      left:0;
+      height: 100%;
+      width:100%;
+      background-color:rgba(0,0,0,0.8);
+      display:none;
+}
+.modal-wrapper{
+  position: fixed;
+  background-color: white;
+  width: 70%;
+  max-width: 400px;
+  padding: 20px;
+  left:50%;
+  border:1px solid black;
+  border-radius: 5px;
+
+  transform: translate(-50%,-100%);
+  -webkit-transform: translate(-50%,-100%);
+  -ms-transform: translate(-50%,-200%);
+
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  -ms-transition: -ms-transform 200ms ease-out;
+  transition:transform 200ms ease-out;
+}
+.modal-overall:target > .modal-wrapper{
+  top:20%;
+  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+}
+.modal-overall:target:before{
+  content:'';
+  display:block;
+}
+
+.resp-image{
+  width: 100%;
+}
+.thumb{
+  width:100%;
+  transform: scale();
+  transition: transform 400ms ease-in;
+}
+.thumb:hover{
+    transform: scale(.95);
+}
+
+
+div.container>div.page3{
+ height:100%;
+ width:100%;
+ display: table;
+ }
+
+ div.container>div.page3>div.grid-wrapper{
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+   width: 100%;
+   float: left;
+ }
+ div.page3  a{
+	   color: #d7ac28;
+ }
+
+ div.container>div.page3>div.grid-wrapper>div.grid-cols>p{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    width:80%;
+    color:silver;
+    margin: 0 auto;
+  }
+  /************GALLERY ENDS**************/
+/**************CONTACT US FORM STARTS***************/
+  input[type=text], textarea{
+      width: 99%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+  }
+  .bottom{      
+      width: 30%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+	  text-align:center;
+      background-color: #d7ac28;
+	  margin:auto;
+  }
+ .bottom a{
+		color:red;
+		}
+  .sub{
+      background-color: #969fae;
+      color: #fff;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+  }
+  .sub:hover {
+      background-color: #d7ac28;
+  }
+
+  .page4 {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 18px;
+      box-sizing: border-box;
+  }
+
+  .col-4 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+  }
+
+  .col-5{
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+  }
+
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  /**************CONTACT US FORM ENDS***************/
+   /**************FOOTER STARTS***************/
+ footer{
+    border-radius: 0px 0 8px 8px;
+    margin: 10% 0.5% 0 0.5%;
+    padding:20px 0;
+    width:100%;
+    text-align: center;
+    background-color: #969fae;
+	color:#eee;
+  }
+   /**************FOOTER ENDS***************/
+  @media screen and (max-width: 600px) {
+
+      .col-4, .col-5, .sub {
+          width: 100%;
+          margin-top: 0;
+      }
+}
+ .form-container{
+     box-sizing: border-box;
+ }
+ @media screen and (max-width: 860px) {
+        div.container>div.page3>div.grid-wrapper>div.grid-cols{
+        width:29.33%;
+        margin: 2%;
+      }
+ @media screen and (max-width: 700px) {
+
+    /*--the nav menu links appears horizontally--*/
+ul.major  {
+  display: none;
+}
+    ul.major  li{
+           display: block;
+           width:98%;
+           padding:1% 1%;
+           margin: 1px;
+   }
+    /*--the nav menu links appears vertically--*/
+   ul.minor > li{
+         display: block;
+         background-color: #887026;
+         text-align: left;
+         padding:10px 30px;
+         margin:0;
+         border-bottom: 1px solid blue;
+     }
+	 .screen-1, .screen-2{
+       width:100%;
+       transform:none;
+	   height:50%;
+     }
+     .screen-1:hover,.screen-2:hover{
+             transform:none;
+     }
+     .mobile-menu{
+       display: block;
+     }
+	 .article{
+		margin: 100px 0;	
+     }
+	 p{
+		font-size:13px;
+		line-height:1.2;
+	 }
+	 
+	 h1{
+		font-size:32px;
+	 }
+	 h2{
+		font-size:25px;
+	 }
+	#video{
+		display:none;
+		}
+    .vid-wrap{
+		top:15%;
+		height:50%;
+	}
+    div.container>div.page3>div.grid-wrapper>div.grid-cols{
+     width:44%;
+     margin:1% 3%;
+   }
+ }
+ @media screen and (max-width: 500px) {
+        div.container>div.page3>div.grid-wrapper>div.grid-cols{
+            width:90%;
+            margin:1% 5%;
+      }
+
+ }
+    </style>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Pure CSS based Templete-1</title>
+  </head>
+  <body>
+        <div class="container">
+
+          <div class="page1">
+            <nav>
+              <label class="mobile-menu" for="toggle">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </label>
+                <input type="checkbox" name="" id ="toggle" value="" >
+              <ul class="major">
+                  <li style="background:#969fae; margin-right:50px"><h1 class="logo">James Pic</h1>  </li>
+                  <li style="background:#969fae; border-bottom:solid 1px #fff"> <a href="#">Home</a>  </li>
+                  <li> <a href="#">About</a>  </li>
+
+                  <li > <div class="dropdown"><a  href="#">Projects</a></div>
+                          <ul class="minor">
+                            <li><a href="#">Free pictures</a>  </li>
+                            <li><a href="#">Most Rated</a>  </li>
+                          </ul>
+                     </li>
+                  <li> <div class="dropdown"> <a href="#">Videos</a></div>
+                          <ul class="minor">
+                            <li><a href="#">Turtorials</a>  </li>
+                            <li><a href="#">Interviews</a>  </li>
+                          </ul>
+                   </li>
+                  <li> <a href="#">Contacts</a>  </li>
+              </ul>
+            </nav>
+                <div class="split-screen-container">
+                  <div class="screen-1">
+                        <div class="content">
+                           <div>
+                              <h1>Talent in Photography</h1>
+                            <p></p>    Do you need professional Photos for your business?
+                               <strong>
+                                     If the unswer is <em>Yes</em> then check the evidence below:
+                               </strong>
+                               <p><button type="button" name="button">PORTFOLIO</button> </p>
+                               <small>View the portfio to get the unswers!</small>
+                            </div>
+                     </div>
+                 </div>
+                 <div class="screen-2">
+                       <div class="content">
+                               <div>
+                                <h1>James Sithole</h1>
+                                  <ul>
+                                    <li>
+                                      <li></li>
+                                      Phone Number : 074 621 7715</li>
+                                    <li>E-mail : jsthole@jamespix.co.za</li>
+                                    <li>Address : E1131 Ntuzuma, Ihobhe Road, 4359</li>
+                                  </ul>
+                                  <p class="social-call">
+                                    <a href="#"> <i class="fa fa-fw fa-facebook"></i> </a>
+                                    <a href="#"><i class="fa fa-fw fa-twitter"> </i></a>
+                                    <a href="#"><i class="fa fa-fw fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-fw fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-fw fa-youtube"></i></a>
+                                  </p>
+
+
+                              </div>
+                    </div>
+                </div>
+        </div>
+        <div class="article">
+              <h1>What James Do?</h1>
+                <hr>
+			  <p>
+                  James is all about quality shots in a short period of time.
+                  The perfact picture comes from when subjects are relaxed and warmed up
+                  for a camera.One way James does is taking pictures while subjects are
+                  not aware of the camera,and James does this perfactly with a skill of
+                  controlling the camera.James is talented enough to recommend a way of
+                  pausing to the subjects and make sure they are ready and comfortable
+                  during photoshoot.James does this easily as he have sense of humour naturally.
+              </p>
+        </div>
+    </div>
+
+		  <div class="vid-wrap">
+			  <video id="video" autoplay="true"  loop="loop" preload="auto" muted="muted">
+               <source src="videos/video1.mp4" type="video/mp4">
+             </video>	  
+			
+			<div class="vid-cont">
+              <h1>About Us</h1>
+			  <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+			  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ 		  
+			 </p>
+          </div>
+		  </div>
+
+  <div class="page3">
+<h1>PORTFOLIO PHOTO GALLERY</h1>
+				<hr/>
+      <!--START GRID GALLERY -->
+        <div class="grid-wrapper">
+
+                <!--grid image gallery-->
+                <div class="grid-cols">
+                      <a href="#open-modal-1"><div id="pic1"><img src="images/image1.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p>caption</p>
+                </div>
+
+                <!--modal window-->
+                <div class="modal-overall" id='open-modal-1'>
+                      <div class="modal-wrapper">
+                            <p>
+                              <img src="images/image1.jpg" alt="modal" class="resp-image"height="200">
+                            <p >caption</p>
+                           </p>
+                           <p><a href="#pic1">exit</a></p>
+                     </div>
+             </div>
+
+            <!--grid image gallery-->
+            <div class="grid-cols">
+                      <a href="#open-modal-2"><div id="pic2"><img src="images/image2.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p class="caption" >caption</p>
+            </div>
+
+            <!--modal window-->
+            <div class="modal-overall" id='open-modal-2'>
+                    <div class="modal-wrapper">
+                          <p>
+                              <img src="images/image2.jpg" alt="modal" class="resp-image"  height="200">
+                             <p >caption</p>
+                         </p>
+                         <p><a href="#pic2">exit</a></p>
+                   </div>
+            </div>
+
+              <!--grid image gallery-->
+              <div class="grid-cols">
+                      <a href="#open-modal-3"><div id="pic3"><img src="images/image3.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p class="caption" >caption</p>
+              </div>
+
+              <!--modal window-->
+              <div class="modal-overall" id='open-modal-3'>
+                    <div class="modal-wrapper">
+                       <p>
+                          <img src="images/image3.jpg" alt="modal" class="resp-image"  height="200">
+                       <p >caption</p>
+                       </p>
+                       <p><a href="#pic3">exit</a></p>
+                   </div>
+             </div>
+
+            <!--grid image gallery-->
+            <div class="grid-cols">
+                <a href="#open-modal-4"><div id="pic4"><img src="images/image4.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                <p class="caption" >caption</p>
+           </div>
+
+           <!--modal window-->
+           <div class="modal-overall" id='open-modal-4'>
+                 <div class="modal-wrapper">
+                 <p>
+                      <img src="images/image4.jpg" alt="modal" class="resp-image"  height="200">
+                      <p >caption</p>
+                  </p>
+                    <p><a href="#pic4">exit</a></p>
+               </div>
+              </div>
+
+              <!--grid image gallery-->
+              <div class="grid-cols">
+                  <a href="#open-modal-5"><div id="pic5"><img src="images/image5.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                  <p class="caption" >caption</p>
+             </div>
+
+              <!--modal window-->
+              <div class="modal-overall" id='open-modal-5'>
+                          <div class="modal-wrapper">
+                             <p>
+                                 <img src="images/image5.jpg" alt="modal" class="resp-image"  height="200">
+                                 <p >caption</p>
+                             </p>
+                             <p><a href="#pic5">exit</a></p>
+                          </div>
+                </div>
+
+                <!--grid image gallery-->
+                <div class="grid-cols">
+                      <a href="#open-modal-6"><div id="pic6"><img src="images/image6.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p class="caption" >caption</p>
+                </div>
+
+               <!--modal window-->
+                <div class="modal-overall" id='open-modal-6'>
+                        <div class="modal-wrapper">
+                                <p>
+                                   <img src="images/image6.jpg" alt="modal" class="resp-image"  height="200">
+                                   <p >caption</p>
+                               </p>
+                               <p><a href="#pic6">exit</a></p>
+                       </div>
+                </div>
+
+               <!--grid image gallery-->
+                <div class="grid-cols">
+                        <a href="#open-modal-7"><div id="pic7"><img src="images/image7.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                        <p class="caption" >caption</p>
+               </div>
+
+              <!--modal window-->
+              <div class="modal-overall" id='open-modal-7'>
+                      <div class="modal-wrapper">
+                              <p>
+                                    <img src="images/image7.jpg" alt="modal" class="resp-image"  height="200">
+                                   <p >caption</p>
+                              </p>
+                              <p><a href="#pic7">exit</a></p>
+                       </div>
+              </div>
+
+             <!--grid image gallery-->
+             <div class="grid-cols"  id="pic8" >
+                         <a href="#open-modal-8"><div ><img src="images/image8.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                         <p class="caption" >caption</p>
+             </div>
+
+             <!--modal window-->
+                    <div class="modal-overall" id='open-modal-8'>
+                         <div class="modal-wrapper">
+                              <p>
+                                  <img src="images/image8.jpg" alt="modal" class="resp-image"  height="200">
+                                  <p >caption</p>
+                             </p>
+                              <p><a href="#pic8">exit</a></p>
+                        </div>
+                   </div>
+          </div>
+          <!--END GRID GALLERY -->
+  </div>
+   <div class="page4">
+ <form action="/action_page.php">
+            <h1>Contact Us</h1>
+				<hr/>
+            <!--First Name-->
+               <div class="row">
+                    <div class="col-4">
+                         <label for="fname">First Name</label>
+                   </div>
+                   <div class="col-5">
+                         <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                   </div>
+             </div>
+
+              <!--Last Name-->
+              <div class="row">
+                       <div class="col-4">
+                          <label for="lname">Last Name</label>
+                       </div>
+                      <div class="col-5">
+                         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                      </div>
+             </div>
+
+               <!--WRITE TO US-->
+               <div class="row">
+                   <div class="col-4">
+                             <label for="subject">Subject</label>
+                   </div>
+                   <div class="col-5">
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                   </div>
+                </div>
+
+                <div class="row">
+                    <input type="submit" class='sub' value="Submit">
+                </div>
+    
+                 <div class="row">
+                                        
+						   <p class="social-call bottom">
+                                    <a href="#"> <i class="fa fa-fw fa-facebook"></i> </a>
+                                    <a href="#"><i class="fa fa-fw fa-twitter"> </i></a>
+                                    <a href="#"><i class="fa fa-fw fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-fw fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-fw fa-youtube"></i></a>
+						   </p>
+					
+                 </div>
+             
+           </form>
+
+            <footer class='footer'>
+                    <p>    &copy 2o18, E1131,4359, Durban,South Africa</p>
+            </footer>
+    </div>
+  </div>
+
+  </body>
+</html>

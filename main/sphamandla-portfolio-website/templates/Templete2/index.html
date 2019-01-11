@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8">
+    <style media="screen">
+    *{
+      margin: 0;
+      padding:0;
+	  scroll-behavior:smooth;
+    }
+    html,body,div.container{
+      height: 100%;
+      width:100%;
+      margin: 0;
+      padding:0;
+      font-size: 100%;
+      line-height: 1.3;
+      text-transform: capitalize;
+    }
+    div.container{
+      width:99%;
+      margin: 1% 0.5% 0 0.5%;
+    }
+
+    div.container > div.page1,div.page2,div.page3,div.page4{
+      height: 100%;
+      width:100%;
+    }
+
+    div.page1{
+      background-image: url("images/image1.jpg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      width:100%;
+    }
+    /****************START OF NAVIGATION*********/
+    .logo{
+        color:red;
+        margin: 1%;
+        position: absolute;
+        border: 1px solid white;
+        padding:  0.3% 1.2%;
+        border-radius: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 3px;
+        z-index: 2000;
+    }
+  /*--NAVIGATION-START--*/
+a{
+  text-decoration: none;
+  color: white;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+nav{
+  background-color: rgba(0,0,0,.6);
+  border-radius: 8px 8px 0 0px;
+  padding:0;
+  color: white;
+  position: fixed;
+  width:99%;
+  border-bottom: 2px grey dotted;
+}
+ul.major{
+  text-align: center;
+  max-width:100%;
+  z-index: 2000;
+}
+ /*--the nav menu links appears horizontally--*/
+ ul.major  li{
+        display: inline-block;
+        background-color:none;
+        border-radius: 5px;
+        padding: 0.3% 1.2%;
+        transition:background-color 0.3s  ease-in;
+}
+
+.input-search{
+  text-align: center;
+  margin: 5px;
+}
+.input-search input[type="search"]{
+    padding: 0.3% 5%;
+    border-radius: 8px 0 0 8px;
+    margin: 1% 0 0.5% 0;
+    color:grey;
+}
+.input-search input[type="submit"]{
+    margin: 1% 0 0.5% 0;
+    border-radius: 0 8px 8px 0;
+      padding: 0.3% 3%;
+      background-color: transparent;
+      color: white;
+      transition:background-color 0.3s  ease-in;
+}
+ul.major  li:hover{
+  background-color: red;
+
+}
+/****************END OF NAVIGATION*********/
+/************ANIMATED WELCOME TEXT**************/
+  .animate-cont{
+    position: absolute;
+    text-align: center;
+    top:20%;
+    right: 0;
+    padding: 20px;
+    display : block;
+  }
+  span{
+    text-transform: uppercase;
+    display: block;
+    color: white;
+  }
+  .text1{
+      font-size: 40px;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+      position: relative;
+      animation: text 8s infinite;
+      color: silver;
+  }
+.text2{
+      font-size: 20px;
+      color: grey;
+      }
+ @keyframes text{
+   0%{
+     margin-bottom: -30px;
+     color:black;
+   }
+   30%{
+      letter-spacing: 25px;
+      margin-bottom: -30px;
+   }
+   85%{
+     letter-spacing: 5px;
+     margin-bottom: -30px;
+   }
+ }
+/************END ANIMATED WELCOME TEXT**************/
+/****************PAGE 1 CONTENT*********/
+.col-1{
+  position: relative;
+  top: 40%;
+  left: 13%;
+  background-color: rgba(0,0,0,.5);
+  border-radius: 8px;
+  margin:0 40% 0 3% ;
+  color: grey;
+  border-bottom: 2px grey dotted;
+  box-shadow: 3px 0 3px 0 grey;
+  padding:1%;
+  overflow: auto;
+}
+.col-1 p{
+  margin: 1%;
+  color:#aaa;
+}
+.col-1::after,.col-2::after{
+  content: '';
+  clear: both;
+  display: table;
+}
+.col-2 h1,.col-1 h1{
+  font-size: 60px;
+  color: silver;
+}
+.col-1 button{
+  background-color: transparent;
+  border-radius: 5px;
+  border:1px solid wite;
+  padding: 1.5% 2.5%;
+  box-shadow: 0 2px silver;
+  margin: 1%;
+  color: red;
+  transition:background-color .3s ease-in;
+}
+.col-1 button:hover,input[type="submit"]:hover{
+  background: silver;
+}
+.averter,.col-1 h1{
+display: inline-block;
+}
+.averter{
+  float: right;
+  margin: 2%;
+  text-align: center;
+}
+.averter img{
+  border-radius: 50%;
+}
+
+.averter b{
+  display: block;
+  color: silver;
+}
+/****************PAGE 1 CONTENT****************/
+
+/****************SKILLS BAR STARTS*********/
+.col-2{
+  width: 55%;
+  min-height: 320px;
+  background-color: rgba(0,0,0,0.8);
+  background-image: url("images/image4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  float: left;
+  margin-right: 5%;
+  overflow: auto;
+}
+
+.skill-bar li{
+  padding: 10px;
+    font:50px;
+    color: grey;
+    float: left;
+}
+
+.bar{
+  color:rgba(0,0,0,.7);
+  font-weight:bolder;
+  width:160px;
+  height: 160px;
+  background: rgba(0,0,0,.5);
+  position: relative;
+  border-radius: 50%;
+  display: table;
+  box-shadow:  1px 1px 1px 2px rgba(225,225,225,0.1);
+  border: 1px solid grey;
+
+}
+.bar-1 ,.bar-2 ,.bar-3{
+  box-shadow:  1px 1px 1px 2px rgba(225,225,225,0.1);
+  color: red;
+}
+.bar-1 ,.bar-2 ,.bar-3,.bar p{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.bar-1{
+  width:90%;
+  height: 90%;
+  background: rgba(0,0,0,.7);
+}
+
+.bar-2{
+  width:80%;
+  height: 80%;
+  background: rgba(0,0,0,.7);
+}
+.bar-3{
+  width:68%;
+  height: 68%;
+  background: rgba(0,0,0,.7);
+}
+/****************END SKILLS BAR SECTION*********/
+
+/************RIGHT SIDE BAR-ABOUT SECTION**************/
+.article{
+  width: 30%;
+  float: left;
+  padding-left:5%;
+  color:rgba(0,0,0,.8);
+  border-left: 2px solid rgba(225,225,225,.1);
+}
+.article>img{
+  width: 150px;
+  height:150px;
+   float:left;
+   margin-right: 2em;
+   margin-bottom: 1.5em;
+  border-radius: 50%;
+   shape-outside:circle();
+ }
+
+.article h1,.article p{
+  margin: 1%;
+}
+.article p.com{
+  background-color:rgba(0,0,0,.8);
+  color: silver;
+  border-radius: 5px;
+    margin: 2%;
+    padding: 2%;
+}
+p.com i{
+  padding: 0 1%;
+}
+/************END RIGHT SIDE BAR-ABOUT SECTION**************/
+hr{
+  margin: 8% 0;
+  background: rgba(225,225,225,.1);
+
+}
+
+/************GALLERY STARTS**************/
+
+    div.container>div.page3>div.grid-wrapper{
+     display: table-cell;
+     text-align: center;
+     vertical-align: middle;
+     width: 100%;
+     float: left;
+    }
+   div.page3  a{
+     color:red;
+   }
+   div.container>div.page3>div.grid-wrapper>div.grid-cols{
+      width:24%;
+      padding: 1.5% 0 2% 0;
+      margin:0.5%;
+      float: left;
+      background-color: rgba(0,0,0,0.8);
+     border-radius: 5px;
+    }
+.modal-overall::before{
+      content: '';
+      position: fixed;
+      top:0;
+      left:0;
+      height: 100%;
+      width:100%;
+      background-color:rgba(0,0,0,0.8);
+      display:none;
+}
+.modal-wrapper{
+  position: fixed;
+  background-color: white;
+  width: 70%;
+  max-width: 400px;
+  padding: 20px;
+  left:50%;
+  border:1px solid black;
+  border-radius: 5px;
+
+  transform: translate(-50%,-200%);
+  -webkit-transform: translate(-50%,-200%);
+  -ms-transform: translate(-50%,-200%);
+
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  -ms-transition: -ms-transform 200ms ease-out;
+  transition:transform 200ms ease-out;
+}
+.modal-overall:target > .modal-wrapper{
+  top:20%;
+  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+}
+.modal-overall:target:before{
+  content:'';
+  display:block;
+}
+
+.resp-image{
+  width: 100%;
+}
+.thumb{
+  width:100%;
+  transform: scale();
+  transition: transform 400ms ease-in;
+}
+.thumb:hover{
+    transform: scale(.95);
+}
+
+
+div.container>div.page3{
+ height:100%;
+ width:100%;
+ display: table;
+     background-color: rgba(0,0,0,0.4);
+ }
+ div.container>div.page3>h1{
+   color:white;
+   margin: 1%;
+ }
+ div.container>div.page3>div.grid-wrapper{
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+   width: 100%;
+   float: left;
+ }
+ div.page3  a{
+   color:red;
+ }
+
+ div.container>div.page3>div.grid-wrapper>div.grid-cols>p{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    width:80%;
+    color:silver;
+    margin: 0 auto;
+  }
+  /************GALLERY ENDS**************/
+
+/**************CONTACT US FORM STARTS***************/
+  input[type=text], select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+  }
+
+  .option {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+  }
+
+  .sub {
+  	background:rgba(0,0,0,.5);
+      color: #fff;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+  }
+  .sub:hover {
+      background-color: red;
+  }
+
+  .page4 {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 18px;
+      box-sizing: border-box;
+  }
+
+  .col-4 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+  }
+
+  .col-5{
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+  }
+
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  /**************CONTACT US FORM ENDS***************/
+  footer{
+    background-color: rgba(0,0,0,.6);
+    border-radius: 0px 0 8px 8px;
+    margin: 10% 0.5% 0 0.5%;
+    padding:20px 0;
+    width:99%;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 600px) {
+
+      .col-4, .col-5, .sub {
+          width: 100%;
+          margin-top: 0;
+      }
+}
+ @media screen and (max-width: 860px) {
+        div.container>div.page3>div.grid-wrapper>div.grid-cols{
+        width:29.33%;
+        margin: 2%;
+      }
+
+      .col-2,.article{
+        width: 90%;
+        margin: 1% 5%;
+ }
+
+ @media screen and (max-width: 760px) {
+   .logo{
+       margin: 1% 1% 0 1%;
+       position: relative;
+       padding:  0;
+       width:98%;
+       text-align: center;
+   }
+
+ .input-search input[type="search"]{
+   padding: 0.3% 0;
+   float: left;
+   width: 80%;
+   margin: 0;
+ }
+ .input-search input[type="submit"]{
+     padding: 0.3% 0;
+     width: 20%;
+     float: left;
+     margin: 0;
+ }
+    div.container>div.page3>div.grid-wrapper>div.grid-cols{
+     width:44%;
+     margin:1% 3%;
+   }
+
+   .col-1{
+     position: relative;
+     top: 20%;
+     left: 6%;
+     padding:5%;
+     margin:0 20% 0 3% ;
+   }
+
+   .col-2 h1,.col-1 h1{
+     font-size: 30px;
+   }
+
+   .averter{
+     float: none;
+     margin: 2%;
+   }
+   .col-1 p{
+     margin:3% 0;
+   }
+
+   .animate-cont span{
+     display : none;
+   }
+ }
+
+ @media screen and (max-width: 400px) {
+        div.container>div.page3>div.grid-wrapper>div.grid-cols{
+            width:90%;
+            margin:1% 5%;
+      }
+
+ }
+
+    </style>
+
+    <title>FASHION DESIGN TEMPLATE</title>
+  </head>
+  <body>
+  <div class="container">
+
+      <div class="page1" id ="home">
+            <!--START OF NAV-->
+             <nav>
+                   <h1 class="logo" >Mandy</h1>
+                   <div class="input-search">
+                      <input type="search" name="" value="Search for anything">
+                      <input type="submit" name="" value="Search">
+                  </div>
+
+                  <ul class="major">
+                    <li> <a href="#home">Home</a> </li>
+                    <li> <a href="#about">About</a> </li>
+                    <li> <a href="#gallery">Gallery</a> </li>
+                    <li> <a href="#home">Latest News</a> </li>
+                  </ul>
+  <a href ="#home" style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
+            </nav>
+            <!--END OF NAV-->
+
+            <!--START OF Welcoming Animated Content-->
+             <div class="animate-cont">
+                        <span class="text1">Welcome in</span>
+                        <span class="text2">Fassion Design</span>
+            </div>
+            <!--END OF Welcoming Animated Content-->
+
+            <!--START OF LANDING PAGE TEXT-->
+            <div class="col-1">
+                      <h1>Luminius Designs</h1>
+                        <p class="averter">  <img src="images/image2.jpg" alt="" width="100" height="100">
+                          <b> <i>Designer:Mandy Xaba</i> </b>
+                          <small><i>Email:smith@mandywardrop.com</i></small>
+                        </p>
+                      <p>Visualise the expirience of the designs of the imagenary perfection...</p>
+                      <p> <button type="button" name="button">PORTFOLIO</button> </p>
+            </div>
+           <!--END OF LANDING PAGE TEXT-->
+    </div>
+
+
+   <div class="page2" id ="about">
+         <hr>
+           <!--START OF SKILLS BAR-->
+          <div class="col-2">
+            <h1>Skill Ratings</h1>
+            <ul class="skill-bar">
+                <li>Skill-1<div class="bar "> <div class="bar-1"> <p> 90% </p> </div></div></li>
+                <li>Skill-2<div class="bar "> <div class="bar-2"> <p> 80% </p>   </div></div></li>
+                <li>Skill-3<div class="bar "> <div class="bar-3"> <p> 68% </p> </div> </div></li>
+            </ul>
+         </div>
+         <!--END OF SKILLS BAR-->
+
+         <!--START ABOUT PART-->
+          <div class="article">
+            <img src="images/image5.jpg" alt="averter">
+            <h1>Smith david</h1>
+            <p>
+               Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+               deserunt mollit anim id est laborum.
+             </p>
+            <p class="com">
+                <i class="fa-fw-facebook"></i>
+                <i class="fa-fw-instagram"></i>
+                <i class="fa-fw-twitter"></i>
+                <i class="fa-fw-linkedin"></i>
+             </p>
+          </div>
+       <!--END ABOUT PART-->
+   </div>
+  <div class="page3" id ="gallery">
+        <h1>PORTFOLIO PHOTO GALLERY</h1>
+      <!--START GRID GALLERY -->
+        <div class="grid-wrapper">
+
+                <!--grid image gallery-->
+                <div class="grid-cols">
+                      <a href="#open-modal-1"><div id="pic1"><img src="images/image2.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p>caption</p>
+                </div>
+
+                <!--modal window-->
+                <div class="modal-overall" id='open-modal-1'>
+                      <div class="modal-wrapper">
+                            <p>
+                              <img src="images/image2.jpg" alt="modal" class="resp-image"height="200">
+                            <p >caption</p>
+                           </p>
+                           <p><a href="#pic1">exit</a></p>
+                     </div>
+             </div>
+
+            <!--grid image gallery-->
+            <div class="grid-cols">
+                      <a href="#open-modal-2"><div id="pic2"><img src="images/image3.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p class="caption" >caption</p>
+            </div>
+
+            <!--modal window-->
+            <div class="modal-overall" id='open-modal-2'>
+                    <div class="modal-wrapper">
+                          <p>
+                              <img src="images/image3.jpg" alt="modal" class="resp-image"  height="200">
+                             <p >caption</p>
+                         </p>
+                         <p><a href="#pic2">exit</a></p>
+                   </div>
+            </div>
+
+              <!--grid image gallery-->
+              <div class="grid-cols">
+                      <a href="#open-modal-3"><div id="pic3"><img src="images/image4.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p class="caption" >caption</p>
+              </div>
+
+              <!--modal window-->
+              <div class="modal-overall" id='open-modal-3'>
+                    <div class="modal-wrapper">
+                       <p>
+                          <img src="images/image4.jpg" alt="modal" class="resp-image"  height="200">
+                       <p >caption</p>
+                       </p>
+                       <p><a href="#pic3">exit</a></p>
+                   </div>
+             </div>
+
+            <!--grid image gallery-->
+            <div class="grid-cols">
+                <a href="#open-modal-4"><div id="pic4"><img src="images/image5.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                <p class="caption" >caption</p>
+           </div>
+
+           <!--modal window-->
+           <div class="modal-overall" id='open-modal-4'>
+                 <div class="modal-wrapper">
+                 <p>
+                      <img src="images/image5.jpg" alt="modal" class="resp-image"  height="200">
+                      <p >caption</p>
+                  </p>
+                    <p><a href="#pic4">exit</a></p>
+               </div>
+              </div>
+
+              <!--grid image gallery-->
+              <div class="grid-cols">
+                  <a href="#open-modal-5"><div id="pic5"><img src="images/image6.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                  <p class="caption" >caption</p>
+             </div>
+
+              <!--modal window-->
+              <div class="modal-overall" id='open-modal-5'>
+                          <div class="modal-wrapper">
+                             <p>
+                                 <img src="images/image6.jpg" alt="modal" class="resp-image"  height="200">
+                                 <p >caption</p>
+                             </p>
+                             <p><a href="#pic5">exit</a></p>
+                          </div>
+                </div>
+
+                <!--grid image gallery-->
+                <div class="grid-cols">
+                      <a href="#open-modal-6"><div id="pic6"><img src="images/image7.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                      <p class="caption" >caption</p>
+                </div>
+
+               <!--modal window-->
+                <div class="modal-overall" id='open-modal-6'>
+                        <div class="modal-wrapper">
+                                <p>
+                                   <img src="images/image7.jpg" alt="modal" class="resp-image"  height="200">
+                                   <p >caption</p>
+                               </p>
+                               <p><a href="#pic6">exit</a></p>
+                       </div>
+                </div>
+
+               <!--grid image gallery-->
+                <div class="grid-cols">
+                        <a href="#open-modal-7"><div id="pic7"><img src="images/image8.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                        <p class="caption" >caption</p>
+               </div>
+
+              <!--modal window-->
+              <div class="modal-overall" id='open-modal-7'>
+                      <div class="modal-wrapper">
+                              <p>
+                                    <img src="images/image8.jpg" alt="modal" class="resp-image"  height="200">
+                                   <p >caption</p>
+                              </p>
+                              <p><a href="#pic7">exit</a></p>
+                       </div>
+              </div>
+
+             <!--grid image gallery-->
+             <div class="grid-cols"  id="pic8" >
+                         <a href="#open-modal-8"><div ><img src="images/image9.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                         <p class="caption" >caption</p>
+             </div>
+
+             <!--modal window-->
+                    <div class="modal-overall" id='open-modal-8'>
+                         <div class="modal-wrapper">
+                              <p>
+                                  <img src="images/image9.jpg" alt="modal" class="resp-image"  height="200">
+                                  <p >caption</p>
+                             </p>
+                              <p><a href="#pic8">exit</a></p>
+                        </div>
+                   </div>
+          </div>
+          <!--END GRID GALLERY -->
+
+    </div>
+
+    <div class="page4" id ="contacts">
+        <form action="/action_page.php">
+
+            <!--First Name-->
+               <div class="row">
+                    <div class="col-4">
+                         <label for="fname">First Name</label>
+                   </div>
+                   <div class="col-5">
+                         <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                   </div>
+             </div>
+
+              <!--Last Name-->
+              <div class="row">
+                       <div class="col-4">
+                          <label for="lname">Last Name</label>
+                       </div>
+                      <div class="col-5">
+                         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                      </div>
+             </div>
+
+            <!--CITY-->
+            <div class="row">
+                 <div class="col-4">
+                     <label class='option' for="country">City</label>
+                 </div>
+                 <div class="col-5">
+                      <select id="city" name="city">
+                            <option value="JHB">JHB</option>
+                            <option value="Pretoria">Pretoria</option>
+                            <option value="Cape Town">Cape Town</option>
+                            <option value=">Durban">Durban</option>
+                      </select>
+                    </div>
+               </div>
+
+               <!--WRITE TO US-->
+               <div class="row">
+                   <div class="col-4">
+                             <label for="subject">Subject</label>
+                   </div>
+                   <div class="col-5">
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                   </div>
+                </div>
+
+                <div class="row">
+                    <input type="submit" class='sub' value="Submit">
+                </div>
+           </form>
+
+            <footer class='footer'>
+                    <p>    &copy 2o18, E1131,4359, Durban,South Africa</p>
+            </footer>
+        </div>
+
+  </div>
+  </body>
+</html>

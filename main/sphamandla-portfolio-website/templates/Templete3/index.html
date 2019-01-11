@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style media="screen">
+	*{scroll-behavior:smooth;}
+      html,body,div.container{
+          height: 100%;
+          width:100%;
+          margin: 0;
+          padding:0;
+          font-size: 100%;
+          line-height: 1.3;
+		  font-family: 'Cormorant Garamond', serif;
+		  font-size:105%;
+      }
+      div.container{
+          width:99%;
+          margin: 1% 0.5% 0 0.5%;
+      }
+      div.container >div.page1,div.container >div.page2,div.container >div.page3{
+          width:100%;
+          height: 100%;
+      }
+      .page3{
+        display: inline-block;
+      }
+      div.full-img{
+          background-image: url("images/image1.jpg");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+          background-attachment: fixed;
+          width:100%;
+      }
+      .logo{
+        color:khaki;
+        margin: 1%;
+        position: absolute;
+        padding:  0.3% 1.2%;
+        border-radius: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 3px;
+        z-index: 2000;
+		font-family: 'Kaushan Script', cursive;
+      }
+      /*--NAVIGATION-START--*/
+    a{
+      text-decoration: none;
+      color:black;
+    }
+    ul{
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav{
+      background-color:black ;
+      border-radius: 8px 8px 0 0px;
+      padding:0;
+      color: white;
+      width:99%;
+      border-bottom: 2px solid black;
+      position: relative;
+	
+    }
+	.clearfix {
+    overflow: auto;
+    }
+   .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    }
+    .input-search{
+      margin: 5px;
+    }
+    .input-search input[type="search"]{
+        padding: 0.3% 5%;
+        border-radius: 8px 0 0 8px;
+        margin: 1% 0 0.5% 0;
+        color:grey;
+    }
+    .input-search input[type="submit"]{
+        margin: 1% 0 0.5% 0;
+        border-radius: 0 8px 8px 0;
+        padding: 0.3% 3%;
+        background-color: transparent;
+        color: white;
+        transition:background-color 0.3s  ease-in;
+    }
+
+	    .input-search input[type="submit"]:hover{
+        background-color: grey;
+    }
+    ul.major  li:hover{
+      background-color: red;
+
+    }
+    /*--the dropdown menu drop out of the navigation--*/
+    ul.major{
+      display: block;
+      float: right;
+      margin:-3.5% 1% 0 1%;
+      padding-bottom: 1%;
+      transform: scale(0);
+      transition:transform .3s ease-in;
+      border: 1px solid rgba(0,0,0,.4);
+      border-radius: 8px;
+    }
+    /*--the nav menu links appears horizontally--*/
+    ul.major  li{
+        background-color: rgba(225,225,225,.1);
+        display: block;
+        border-bottom: 1px solid rgba(225,225,225,1);
+        padding:5px 10px;
+        font-size: 20px;
+        transition:background-color 0.3s linear;
+        background-color: white;
+
+    }
+    nav label{
+      float: right;
+      display:inline-block;
+      margin:-3% 1% 0 1%;
+      padding:  .3% 2%;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      right: 10%;
+      transition:background-color 0.3s  ease-in;
+
+    }
+    .input-search{
+        text-align: center;
+        margin: 5px;
+    }
+    .input-search input[type="search"]{
+        padding: .3% 10%;
+        border-radius: 8px 0 0 8px;
+        margin: 1% 0 0.5% 0;
+        color:grey;
+    }
+    .input-search input[type="submit"]{
+		margin: 1% 0 0.5% 0;
+		border-radius: 0 8px 8px 0;
+        padding: .3% 5%;
+        background-color: transparent;
+        color: white;
+        transition:background-color 0.3s  ease-in;
+    }
+    ul.major  li:hover,nav label:hover,input[type="submit"]:hover,.major li:hover{
+        background-color: aqua;
+    }
+    input[type=checkbox]:checked + ul.major{
+          transform: scale(1);
+    }
+    .col-1{
+      width: 44%;
+      z-index: -2000;
+      margin:7% 32%;
+     transform-origin: top left;
+     transform: skewY(4deg);
+     text-align: center;
+
+    }
+    .col-1 p,.col-4 p{
+    color: rgba(0, 0, 0, .8);
+   }
+    h1,h2,h3{
+      text-transform: uppercase;
+    }
+
+    .col-1>img{
+      width: 150px;
+      height:150px;
+       float:left;
+       margin-right: 2em;
+       margin-bottom: 1.5em;
+      border-radius: 50%;
+       shape-outside:circle();
+     }
+     .col-1>button{
+       background: rgba(0, 0, 0, 0.8);
+       width:80%;
+       border-radius: 5px;
+       padding: 5px 0;
+       color: white;
+       transition: background .3 ease-in;
+       border:2px solid white;
+
+     }
+     .col-2{
+       width:25%;
+      display:block;
+      float: left;
+       margin: 7% 1% 1% 0;
+       font-size: 110%;
+       background-color: rgba(0, 0, 0, .2);
+       padding:2% 1% 2% 2%;
+       border-radius: 5px;
+     }
+     .col-2 label{
+       color: rgba(0, 0, 0, .8);
+     }
+     .col-2 input{
+       width: 58%;
+       padding: 3px 0;
+       margin: .5%;
+       color:rgba(0, 0, 0, 0.5);
+     }
+     .col-2 input[type=submit]{
+       width:25%;
+       border-radius: 5px;
+       transition: background .3 ease-in;
+       border:1px solid white;
+       background: rgba(0, 0, 0, 0.8);
+       color: white;
+       text-align: center;
+     }
+
+     .col-3{
+       width:13%;
+       position: relative;
+       margin: 7% 1% 1% 2%;
+       background-color: rgba(0, 0, 0, .2);
+       padding:2% 1% 2% 2%;
+       border-radius: 5px;
+       top: -72%;
+       float: right;
+     }
+     .vertical-2{
+       width: 40%;
+       float: left;
+       display:inline-block;
+     }
+     .col-3 ul{
+       padding-left: 13%;
+       margin-right: 2%;
+     }
+     .col-3 ul li{
+      margin: 5px;
+     }
+     .col-3 ul li a{
+      color: rgba(0, 0, 0, .8);
+	  transition:color .3s linear;
+     }
+     .col-3 ul li a:hover{
+      color: red;
+     }
+     .col-3 ul li a small{
+      color: rgba(0, 0, 0, .5);
+      margin: 0 3px;
+     }
+     .col-4{
+       text-align: center;
+       width: 100%;
+
+     }
+
+       .vertical{
+         position: relative;
+         background-color: rgba(0, 0, 0, .1);
+         width: 70%;
+         padding: 2% 1%;
+         float: left;
+         left: 14%;
+
+       }
+       .vertical p,.vertical small{
+         margin: 5px;
+       }
+.vertical div{
+  width: 60%;
+  float: left;
+  margin: 1%;
+}
+     .vertical img,.vertical img{
+       width: 100px;
+       height: 100px;
+       float: left;
+      margin: 0.5em;
+      shape-outside:margin-box;
+     }
+     .vertical .center{
+       text-align: center;
+     }
+     .vertical button,.service{
+       width:50%;
+       padding: 1% 0;
+       border-radius: 5px;
+       transition: background .3 ease-in;
+       border:1px solid white;
+       background: rgba(0, 0, 0, 0.8);
+       color: white;
+       text-align: center;
+     }
+     iframe{
+       float: left;
+       margin: 1% 1% 0 1.5%;
+       transform: rotate(4deg);
+     }
+     .vid-cap{
+    float: left;
+    width:250px;
+    transform: rotate(4deg);
+    color: white !important;
+    background: rgba(0, 0, 0, 0.5);
+     }
+
+     .pagination{
+       float: left;
+       width:100%;
+       margin: 3% 0;
+     }
+     ul.pagination li{
+       display: inline-block;
+       font-size: 20px;
+       padding: 1%;
+       background: rgba(0,0,0,.5);
+     }
+     ul.pagination li a{
+       color: silver;
+     }
+     .col-1>button:hover,input[type=submit]:hover,.vertical button:hover,ul.pagination li:hover,.service:hover{
+      background: rgba(0, 0, 0, 1);
+     }
+     .intro{
+       margin-left: 14%;
+       width: 52%;
+       padding: 1% 10%;
+        background-color: rgba(0, 0, 0, .1);
+     }
+
+     .evindence{
+       width: 35%;
+       height: 150px;
+       position: relative;
+        shape-outside:margin-box;
+        margin: 0 2em 1em 0;
+        float: left;
+     }
+     .evindence img{
+       width: 100%;
+       height:inherit;
+       position: absolute;
+     }
+     .evindence p{
+       position: absolute;
+       bottom: 0;
+       color:silver !important;
+       margin: 0;
+       width:100%;
+       padding: 1% 0;
+       text-align: center;
+        background-color: rgba(0, 0, 0, .5);
+     }
+     .author-info{
+		display:block; 
+		margin:1% 1% 1% 60%;
+	 }
+     .body,.recommended{
+       margin-left: 14%;
+       width: 52%;
+       padding: 1% 10%;
+        background-color: rgba(0, 0, 0, .1);
+
+     }
+    .body p,.intro p{ color: rgba(0, 0, 0, .9);}
+
+     li.steps a,.steps img{
+       width:60%;
+       height: 150px;
+     }
+     .service{
+       width:30%;
+     }
+	.center a{
+		color:rgba(0,0,0,.8);
+		transition:color .3s linear;
+	}
+	.center a:hover{
+		color:red;
+	}
+	.center em{
+		width:50px;
+		height:50px;
+		border-radius:100%;
+		background:#444;
+	}
+  @media screen and (max-width: 800px) {
+
+    .input-search{
+      margin: 5px;
+    }
+    .input-search input[type="search"]{
+        padding:1.5% 0;
+		width:50%;
+		float:left;
+    }
+    .input-search input[type="submit"]{
+          width:20%;
+          padding: 1.5% 0;
+		  float:left;		  		  
+    }
+    .logo{
+        position: relative;      
+      }
+     ul.major{
+      margin:0;
+	  position:relative;
+    } 
+	nav{
+	height:100px;
+	}
+      .page3{
+        display: block;
+      }
+      .col-1{
+      width: 99%;
+      z-index: -2000;
+      margin:0;
+     transform-origin: top left;
+     transform: skewY(0deg);
+	   position:static;
+     text-align: center;
+    } 
+    .col-1>a{
+      width: 100%;
+      height:100px !important;
+       float:none;
+       margin-right: 0;
+       margin-bottom: 0;
+      border-radius: 5px;
+       shape-outside:none;
+     }
+	 h1{
+		font-size:23px;
+	 }
+	 h2{
+		font-size:17px;	 
+	 }
+    .col-1>img{
+      width: 99%;
+      height:150px;
+       float:left;
+       margin-right: 2em;
+       margin-bottom: 1.5em;
+      border-radius: 5px;
+       shape-outside:none;
+     }
+     .col-2{
+       width:99%;
+      display:block;
+      float: none;
+       margin: 0;
+       font-size: 99%;
+       padding:2%;
+	   box-sizing:border-box;
+	     position:static;
+     }
+
+     .col-3{
+       width:99%;
+       margin: 0;
+       padding:0;
+       border-radius: 5px;
+	    position:static;
+     }
+.vertical div{
+  width: 99%;
+  float: none;
+  margin: 0;
+  
+}
+     .author-info{ 
+		margin:1% 1% 1% 30%;
+	 }
+     .intro{
+       margin-left: 0;
+       width: 98%;
+       padding: 1%;
+ 
+     }
+ .vertical-2{
+       width: 99%;
+       float: none;
+       display:block;
+      
+     }
+       .vertical{
+          
+         width: 99%;
+         padding: 0%;
+         float: none;
+         left: 0;
+
+       }
+ .vertical button,.service{
+       width:99%;
+       padding:  1% 0;
+	     
+     }
+      div.container >div.page1,div.container >div.page2,div.container >div.page3{
+          width:100%;
+          height: auto;
+      }
+    .evindence{
+       width: 100%;
+     }
+     iframe{
+       float: none;
+       margin: 1%;
+       transform: rotate(0deg);
+	   width:90%;
+	   height:120px;
+     }
+		.vid-cap{
+			float: none;
+			width:98%;
+			transform: rotate(0deg);
+         }
+     .body{
+       margin-left:1%;
+       width: 98%;
+       padding: 1% 0%;
+   }
+	li.steps{
+	    padding: 0;
+		margin:0;
+	}
+     .steps p a,.steps img{
+       width:100% !important;
+       height: 100px !important;
+	    padding: 0;
+		
+     }
+    .steps p a, .steps img{
+       padding-left: 0%;
+     }
+
+	  }
+	  
+	 
+    </style>
+    <meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Kaushan+Script" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page1" id ="home">
+          <nav >
+                <h1 class="logo">mylifestyle</h1>
+                 <div class="input-search">
+                    <input type="search" name="" value="Search for any post..">
+                    <input type="submit" name="" value="Find Blog">
+                  </div>
+                  <label for="click">Menu</label>
+                  <input type="checkbox" name="" id="click" value="" style="display:none">
+
+                  <ul class="major">
+                    <li> <a href="#home">Home</a> </li>
+                    <li> <a href="#Latest-posts">Lastest Posts</a> </li>
+                    <li> <a href="#selected-post">Selected Post</a> </li>
+                  </ul>
+				  <a href ="#home" style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
+           </nav>
+           <div class="col-2">
+             <form class="" action="" method="post">
+                 <h2>Sign up for newsletter</h2>
+                 <hr>
+                 <label for="email">Email:</label><br>
+                 <input type="email" id="email" name="" value="domain@host.com"></br>
+                 <input type="submit" name="" value="Sign In">
+             </form>
+           </div>
+          <div class="col-1">
+				<img src="images/image1.jpg" alt ="feature image" />
+		            <h1>How to make money.</h1>
+                    <p>
+						There are rules to life about everything you want to achieve.
+						There are basic steps that are surecase to give you an amount of 
+						success if they are implemented correctly.In every accomplishment
+						you will notice three words that appear.1.Get educated about what
+						you are persuing.2.Put your knowledge into practice by doing something valuable.
+						3.Consistency.These steps you have implemented in school or at work but why there is 
+						no good results?
+                    </p>
+                    <button type="button" name="button">FIND BLOGS</button>
+          </div>
+          <div class="col-3">
+            <h3>Popular Blogs</h3>
+            <hr>
+              <ul>
+                <li>  <a href="#">Live like a king/queen <small>13 march-2018</small>  </a> </li>
+                <li>  <a href="#">3steps to Get your dream job<small>14 march-2018</small></small> </li>
+                <li>  <a href="#">How to stay wealthy <small>15 march-2018</small></a> </li>
+                <li>  <a href="#">How to start a business<small>16 march-2018</small></a> </li>
+              </ul>
+          </div>
+
+        </div>
+        <div class="page2" id ="Latest-posts">
+          <div class="col-4">
+
+            <h1>Recent Blogs</h1>
+
+            <div class="vertical">
+              <ul class="pagination">
+                <li>  <a href="#"> < </a> </li>
+                <li>  <a href="#"> 1 </a> </li>
+                <li>  <a href="#"> 2 </a> </li>
+                <li>  <a href="#"> 3 </a> </li>
+                <li>  <a href="#"> 4 </a> </li>
+                <li>  <a href="#"> > </a> </li>
+              </ul>
+              <div>
+                <a href='https://photos.google.com/share/AF1QipND9y9pe3LecLDU5Z8LFVTkNXnkZOskv6CSthFKs0cvHFUvKWTzcxfGlvOIK1CiVQ?key=S3IwblJodTY4THV5RFhhTWxQR19oZ2hOeF9BblFB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/uHM2EhQgQglmAtXPPr1m48GGz12-ZMbSzaKA0AfHDtfVkcE4ujsTj8J-hkNGP-dio7zBdJJsfCqF3W-NmnZC4BaqDqdem3pSDpwFIQm6CFin4nbPWxs71KyVsXdG1hZxFeGbAOF9Ug=w2400' /></a><br>
+                <h2>How to manage stress?</h2>
+                <p> Every person can expirience some of stress every now and then and the intensity of stress varies.
+				There are POSITIVE and NEGATIVE types of stresses but when its boils down to your health,there is nothing
+				such as POSITIVE STRESS.Some people stress to the point where they feel deep enxiety that can lead to 
+				life threatning conditions and symptoms of enxiety are plain to see.In this very blog I will dive right in
+				to 5 simple tips that can help you deal stress instantly.These simple steps are backed up by science.</p>
+                <small class="author-info"><i>Written by John Smith on 2018 May 31</i></small>
+                <button type="button" name="button">View More</button>
+                <p class="center"> <small>192k views</small><a href="#" > <i class="fa fa-fw fa-heart"></i><em>13k</em> </a> <a href="#"> <i class="fa fa-fw fa-thumbs-down"></i><em>1k</em></p>
+            </div>
+			  
+			  <iframe width="300" height="200" src="https://www.youtube.com/embed/jnLSYfObARA" 
+			  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+			  picture-in-picture" allowfullscreen></iframe>
+			  
+              <p class="vid-cap">  
+                  5 simple tips that can help you deal stress instantly.
+                  </p>
+
+            </div>
+            <div class="vertical">
+              <div>
+
+                <a href='https://photos.google.com/share/AF1QipM4iw8aPfcJ41XQGCbLN3Tt4WnPWVcMCRXkj29iB8cXTI3BY5b3SFZ9nBeRHcF7uw?key=WGo3c3NsWGNILUYweXNPMHh4bHlFMUhlMjZHYVJB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/zeA_lBnU2rUBgZGz87mPN4YWGQFRCVjQgNeekpE5k6g0o3YQMXM6hK2yUxfWVP8CB54z4EECGtPvjfLIgF1oWyynEyuLXTuHvJsrpKXkM2dMWxm2U_5mBV0jYUJZqsE_b9Oj6VsLtw=w2400' /></a>
+                <h2>How to gain waight as a skinny guy 3steps!</h2>
+                <p> 
+					You working hard at the gym but not seeing the results?Do youfind it impossible to lift some considerably simple weights and 
+					seem like some workout are a magic you will never able to do?Are so thin that other people in the gym are making fun of
+					you,telling you that you are wasting your time?Well this blog will give all the unswers and help you change.Keep reading 
+					you will be suprize that there are only few simple tricks that you need to add to your game to become the champion.
+				</p>
+                <small class="author-info"><i>Written by John Smith on 2018 May 31</i></small>
+                <button type="button" name="button">View More</button>
+                <p class="center">  <small>192k views</small> <a href="#" > <i class="fa fa-fw fa-heart"></i><em>13k</em> </a> <a href="#"> <i class="fa fa-fw fa-thumbs-down"></i><em>1k</em></p>
+            </div>
+
+			  <iframe width="250" height="200" src="https://www.youtube.com/embed/jnLSYfObARA" 
+			  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+			  picture-in-picture" allowfullscreen></iframe>
+			  
+              <p class="vid-cap">
+			  How to gain waight as a skinny guy 3steps!
+                  </p>
+
+            </div>
+            <div class="vertical">
+              <div>
+                <a  href='https://photos.google.com/share/AF1QipPp4JLfFXyMmiQ9s39VytXWioK9lFj7GH2RnKPIQEGxLYbWspYnnEp67UxHkN-RCw?key=LVdKM1pfWGxLNHhpWm13Qnh6ZWlGTFM5ZGRNSEZB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/3A2Mn8OADa-9K7l97y0lJ0Rgym1UBC9b1SkLcBa5mdrh5LjYSbpZFUzAdZzxzLxTmMmBnjzefom0utqti5ZMHvc6wbuSMJl8XFXoskl3H68cHwGgGz70pKQzy33Mz8-kAujyBcLHdg=w2400' /></a>
+                <h2>How to look younger?</h2>
+                <p> 
+					Everyone has a dream of looking young but nowadays it is hard bacause of the life style,situations and
+					the envirionment that we are living under.The time has change,the food that we eat,the technology and
+					the climate has big BAD influence in the changes that are happen into our skins.I will add the stresses
+					and depression has became more common cases in due to how a human being is expected to survive nowadays.
+					In this article I am  going to help establish ways to keep your skin looking younger with in very 
+					few steps.
+				</p>
+                <small class="author-info"><i>Written by John Smith on 2018 May 31</i></small>
+                <button type="button" name="button">View More</button>
+            <p class="center">  <small>100k views</small> <a href="#" > <i class="fa fa-fw fa-heart"></i><em>13k</em> </a> <a href="#"> <i class="fa fa-fw fa-thumbs-down"></i><em>1k</em></p>
+            </div>
+			  
+			  <iframe width="250" height="200" src="https://www.youtube.com/embed/jnLSYfObARA" 
+			  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+			  picture-in-picture" allowfullscreen></iframe>
+
+              <p class="vid-cap"> How to look younger?
+
+                  </p>
+                  <ul class="pagination">
+                    <li>  <a href="#"> < </a> </li>
+                    <li>  <a href="#"> 1 </a> </li>
+                    <li>  <a href="#"> 2 </a> </li>
+                    <li>  <a href="#"> 3 </a> </li>
+                    <li>  <a href="#"> 4 </a> </li>
+                    <li>  <a href="#"> > </a> </li>
+                  </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="page3" id = "selected-post">
+          <div class="col-5">
+            <div class="intro">
+
+              <h1>How to create a professional website</h1>
+              <div class="evindence">
+                <img src="images/image7.jpg" alt="">
+                <p>Author:Tella Smith,13 May 2018</p>
+              </div>
+            <h2>Introduction</h2>
+            <p> Every professional business should have a professional website.
+			There are lot of tools out there to create professional website but 
+			without a professional web programmer you are liable to have a bad
+			website if you do not know the basic technique that are considered 
+			when creating a website.Today I will show you 3 tips to build a 
+			professional website for you busness or personal branding.
+			</p>
+               <button type="button" class="service" name="button">Download Source</button>
+               <button type="button" class="service" name="button">View Demo</button>
+            </div>
+            <ul class="body">
+              <hr>
+              <li class="steps">
+                  <h2>Step 1</h2>
+                  <h4> 
+						Responsive Design for all screen devices
+                  </h4>
+				  <p>
+                  <a href='https://photos.google.com/share/AF1QipNeRQkfGXJDdvsVHx3nmWfUWCwdnqc7n_VPW63yD7pwGH5j9r-XIPPR8-30ec_VRw?key=dERGUGVia3M1Znl0eHhleGNObTd1S1ZtUTJjYnF3&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/CcnRj8qDIGK3tI-NMBd4gwz3GFf_bk-k9iDokPXQegxsuMxlaoj_8oItCvwVIZXUqKhEvGQfu20SpMjmd-5xdTftklfs76E9-8eEQoCu6oxRVDr6aDywEbi6uchJWSuhBJNOzXPZaQ=w2400' /></a>
+                  </p>
+				  <p>
+					Every website should have a responsive layout when viewed in any device.
+					Alot of times people use their smart phones to search web content,so it
+					is important that your website is designed for smartphones as well as desktop
+					computers.There are frameworks such as bootstrap,angular material for web programmers,
+					can also use CSS media queries and CSS grids for responsive layout.Check your
+					templete on your CMS website build if it is responsive by simply resizing it or
+					use some emulators for testing.
+                  </p>
+
+              </li>
+
+              <li class="steps">
+                  <h2>Step 2</h2>
+                  <h4>  
+				     Browser Compability for all browser support.
+                  </h4>
+				  
+				  <p>
+                  <a  href='https://photos.google.com/share/AF1QipOz9D35jfjoQPlSjle_FBplhuCNWbdDxF9ov51WJndjbm1a20i6zEf5N3EhiZVXfw?key=cU1ZX0tjRE9BNUdSOTBZbEZKal9qczVRQ1piWXpB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/49TZJFvhzru59ujMPJdIXGZQa16BbM1IFPyZmFeBU5AcAbDJb7SY1S8-SN_nRGxxFPiCkiFiKG1k0PUH3YGOmTe7VCQwtIVDPEj2CVLCdtrXBvQocpOg6UeDgxFUnFA8iTLwj7yuAA=w2400' /></a>
+                 </p>
+				 <p>
+					Making sure your website is looking and behaving the same in all browser or atleast
+					morden browser is the requirement because you do not know which browser app user will
+					choose to view your website.To resolve this as a web designer,use web prefixes in your
+					CSS code such as <em>-webkit-</em> for chrome and safari,and <em>-moz-</em> for firefox,
+					and <em>-ms-</em> for microsoft IE.You can use grunt service on npm install and also some
+					online tools to automatically add prefixes for browser support.For none developers checkbok
+					your templete by viewing them on different browsers and use some plugins on your CMS.
+                  </p>
+
+              </li>
+              <li class="steps">
+                  <h2>Step 3</h2>
+                  <h4>
+				     Accessibility for disabled people.
+                  </h4>
+				  <p>
+                      <a href='https://photos.google.com/share/AF1QipN2QeabQzqGfaB0HSyGxBtayCVwoh9Sbv51uAtiVDY8PCVNumHrXEj0c7hdxnJJdg?key=MV81anFtOWFyamVaWGFvRzdMVkxQMGpNOGJFRlZ3&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/5wkjkV7NSvobK6QSFSP0YE37c7RNdgESO_1E_VjdraOMv1KAn9pCW2m61R_iOa2KlcyHIJm4KHMHxD8gHqcht7lnqaQ3nu7xbD_b_x-NL8YJlr99F-Oa8nHa4oCDQ1m-E_CIhA_sRQ=w2400' /></a>
+                 </p>
+				 <p>
+                      Using chrome vox as a testing tool is essential to ensure a great user expirience for everyone
+					  entering your website.Use html elements as the way they are intended to be used is highly
+					  recommended to avoid mistakes of ignoring  disabled people using your website.
+					  Some html elements are used such as image alt and aria could helpfpr developers.
+                  </p>
+
+              <li class="steps">
+			  
+			  <iframe width="250" height="200" src="https://www.youtube.com/embed/jnLSYfObARA" 
+			  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+			  picture-in-picture" allowfullscreen></iframe>
+			  
+                  <p style="width:200px;float: none;transform: rotate(4deg)">
+                      You can watch this on youtube aswell.
+                  </p>
+          </li>
+
+          <li class="steps" style="display:block">
+              <h2>Conclussion</h2>
+
+              <p>
+                  There are many tools used to create websites even for those who cannot write code
+				  but you owe it to yourself to understand what is required for a professional website.
+
+              </p>
+              <button type="button" name="button" class="service">Download Source</button>
+              <button type="button" name="button" class="service">View Demo</button>
+          </li>
+          <hr>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
